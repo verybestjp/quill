@@ -21,6 +21,6 @@ jobs:
         node-version: '18'
         registry-url: 'https://npm.pkg.github.com'
     - run: |
-        (cd packages/quill; npm publish)
+        (cp packages/quill/package.json packages/quill/dist; cd packages/quill/dist; npm publish) # dist以下をルートに
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

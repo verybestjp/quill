@@ -1,3 +1,9 @@
+## ビルドの仕方
+```
+npm run build:quill
+```
+
+
 <h1 align="center">
   <a href="https://quilljs.com/" title="Quill">Quill Rich Text Editor</a>
 </h1>

@@ -194,7 +194,9 @@ class Selection {
     const getNativeRange = rootNode => {
       const selection = getNativeSelection(rootNode);
       if (!selection?.anchorNode) return null;
-      if (selection && 'getComposedRanges' in selection && typeof selection.getComposedRanges === 'function' &&
+      if (0 &&
+      // safari調査のためコメントアウト
+      selection && 'getComposedRanges' in selection && typeof selection.getComposedRanges === 'function' &&
       // Chrome 137 also has `getComposedRanges()` but it's messed up
       // when using it on the result of `shadowRoot.getSelection()`
       !(rootNode instanceof ShadowRoot && 'getSelection' in rootNode)) {

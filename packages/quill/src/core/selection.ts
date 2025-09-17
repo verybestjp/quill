@@ -261,7 +261,9 @@ class Selection {
       const selection = getNativeSelection(rootNode);
       if (!selection?.anchorNode) return null;
 
-      if ( 0 &&  // safari調査のためコメントアウト
+      // getComposedRangesの動作不具合によりsafariを除外
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (!isSafari &&
         selection &&
         'getComposedRanges' in selection &&
         typeof selection.getComposedRanges === 'function' &&

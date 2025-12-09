@@ -261,11 +261,7 @@ class Selection {
       const selection = getNativeSelection(rootNode);
       if (!selection?.anchorNode) return null;
 
-      // getComposedRangesの動作不具合によりsafari、webViewを除外
-      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-      const isMobileApp =/MobileApp/i.test(navigator.userAgent);
-      if (!isSafari && !isMobileApp &&
-        selection &&
+      if (selection &&
         'getComposedRanges' in selection &&
         typeof selection.getComposedRanges === 'function' &&
         // Chrome 137 also has `getComposedRanges()` but it's messed up
